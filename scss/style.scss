@@ -1,0 +1,213 @@
+@import "../src/assets/reset";
+@import "../src/assets/variables";
+@import "../src/assets/fonts";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: $body-bg;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  .card {
+    max-width: 730px;
+    background: $white;
+    border-radius: 10px;
+    box-shadow: 0 40px 40px -10px rgba(201, 213, 225, 0.5);
+    display: flex;
+    .card-img {
+      .desktop-img {
+        height: 100%;
+      }
+      .mobile-img{
+        display: none;
+      }
+    }
+    .card-content {
+      width: 100%;
+      padding: 32px 40px;
+      h1 {
+        font-weight: 700;
+        font-size: 20px;
+        line-height: 140%;
+        letter-spacing: 0.01em;
+        color: $primary;
+        margin-bottom: 12px;
+      }
+      p {
+        font-weight: 500;
+        font-size: 13px;
+        line-height: 154%;
+        letter-spacing: 0.01em;
+        color: $secondarytext;
+        margin-bottom: 20px;
+      }
+      .user {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .user-info {
+          width: 100%;
+          max-width: 172px;
+          display: flex;
+          height: 40px;
+          justify-content: space-between;
+          img {
+            width: 40px;
+            height: 40px;
+            display: flex;
+          }
+          .user-info-content {
+            h2 {
+              font-weight: 700;
+              font-size: 13px;
+              line-height: 154%;
+              letter-spacing: 0.01em;
+              color: $primary;
+            }
+            p {
+              font-weight: 500;
+              font-size: 13px;
+              line-height: 154%;
+              letter-spacing: 0.01em;
+              color: $paragraph-color;
+              margin-bottom: 0;
+            }
+          }
+        }
+        .share {
+          width: 32px;
+          height: 32px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          background: $body-bg;
+          border-radius: 50%;
+          position: relative;
+          &:active {
+            .share-active {
+              width: 248px;
+              display: flex;
+              position: absolute;
+              background: $primary;
+              top: -70px;
+              padding: 18px 36px;
+              border-radius: 10px;
+              gap: 16px;
+              .active-share-icon{
+                display: none;
+              }
+              h2 {
+                font-weight: 500;
+                font-size: 13px;
+                line-height: 154%;
+                letter-spacing: 0.38em;
+                color: $paragraph-color;
+              }
+              &:before {
+                content: "";
+                width: 0;
+                border-left: 7px solid transparent;
+                border-right: 7px solid transparent;
+                border-top: 10px solid $primary;
+                position: absolute;
+                top: 56px;
+                left: 117px;
+              }
+            }
+
+          }
+          .share-active {
+            display: none;
+            .active-share-icon{
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (width < 785px) {
+  .wrapper{
+    // padding: 20px;
+    .card{
+      display: flex;
+      flex-direction: column;
+      max-width: 327px;
+      overflow: hidden;
+      .card-img{
+        .desktop-img{
+          display: none;
+        }
+        .mobile-img{
+          display: block;
+        }
+      }
+      .card-content{
+        padding: 36px 32px 20px;
+        .info{
+          width: 263px;
+        }
+        .user{
+          .user-info{
+            display: flex;
+            gap: 16px;
+            .user-info-content{
+              width: 100%;
+              max-width: 132px;
+              h2{
+                width: 132px;
+              }
+            }
+          }
+          .share{
+            position: relative;
+            z-index: 3;
+            .share-active{
+              display: none;
+              width: 100%;
+              max-width: 327px;
+            }
+            &:active{
+              .share-active{
+                width: 327px;
+                display: flex;
+                align-items: center;
+                position: absolute;
+                background: $primary;
+                top: -10px;
+                left: -263px;
+                padding: 18px 36px;
+                gap: 16px;
+                border-radius: 0;
+                .active-share-icon{
+                  width: 32px;
+                  height: 32px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  background: $secondarytex;
+                  border-radius: 50%;
+                }
+                &::before{
+                  content: "";
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
